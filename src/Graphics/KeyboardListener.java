@@ -7,10 +7,10 @@ import java.awt.event.KeyListener;
 
 public class KeyboardListener implements KeyListener {
 
-    Game chickenGame;
+    Game game;
 
-    public KeyboardListener(Game chickenGame){
-        this.chickenGame = chickenGame;
+    public KeyboardListener(Game game){
+        this.game = game;
     }
 
     @Override
@@ -25,6 +25,6 @@ public class KeyboardListener implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        chickenGame.movePlayer(e.getKeyCode(),30);
+        game.movePlayer(e.getKeyCode(),30);
     }
 }

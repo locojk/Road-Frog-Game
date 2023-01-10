@@ -14,19 +14,14 @@ import java.awt.*;
  */
 public class GameGraphics extends JPanel {
     private Game roadFrogGame;
-    private static final Point START_POSITION = new
-            Point(300,500);
 
     /**
+     * Can restart game and start game at first time
      * Creates a new graphics element of the Road Frag Game
      * It will add four cars, two in each direction and register the keyboard listener
      */
-    public GameGraphics(){
-        roadFrogGame = new Game("Hui", START_POSITION);
-
-        KeyboardListener kbListener = new KeyboardListener(roadFrogGame);
-        addKeyListener(kbListener);
-        setFocusable(true);
+    public GameGraphics() {
+        resetGame();
     }
 
     /**
@@ -34,28 +29,54 @@ public class GameGraphics extends JPanel {
      * @param gameFrame the JFrame window
      * @throws InterruptedException if the update time is interrupted for some reason
      */
-    public void graphicsGameLoop(JFrame gameFrame) throws InterruptedException{
-        boolean playerIsHit = false;
-        boolean playerWon = false;
+    public void startGameLoop(JFrame gameFrame) throws InterruptedException {
 
-        while (!playerIsHit && !playerWon){
+        boolean playerHit;
+        boolean playerWon;
+
+        while (true) {
             roadFrogGame.moveCars(600);
             gameFrame.repaint();
-            playerIsHit = roadFrogGame.isPlayerHit();
+            playerHit = roadFrogGame.isPlayerHit();
             playerWon = roadFrogGame.hasPlayerWon();
-            Thread.sleep(50);
+            if (playerHit || playerWon) {
+                break;
+            }
+            Thread.sleep(100);
         }
 
-        if (playerIsHit) {
-            JOptionPane.showMessageDialog(this,"Smells like fried frog",
-                    "you got hit!", JOptionPane.ERROR_MESSAGE);
+        String message;
+        if (playerHit) {
+            message = "Smells like fried frog. Play again?";
+            int result = JOptionPane.showConfirmDialog(this, message, "you got hit!", JOptionPane.YES_NO_OPTION);
+            if (result == JOptionPane.YES_OPTION) {
+                resetGame();
+                startGameLoop(gameFrame);
+            } else {
+                System.exit(0);
+            }
+        } else {
+            message = "No fried frog today. Play again?";
+            int result = JOptionPane.showConfirmDialog(this, message, "Safe!", JOptionPane.YES_NO_OPTION);
+            if (result == JOptionPane.YES_OPTION) {
+                resetGame();
+                startGameLoop(gameFrame);
+            } else {
+                System.exit(0);
+            }
         }
-        else {
-            JOptionPane.showMessageDialog(this,"No fried frog today",
-                    "Safe!", JOptionPane.ERROR_MESSAGE);
-        }
+    }
 
-        System.exit(0);
+    /**
+     * Can restart game and start game at first time
+     * Creates a new graphics element of the Road Frag Game
+     * It will add four cars, two in each direction and register the keyboard listener
+     */
+    private void resetGame() {
+        roadFrogGame = new Game("Hui", new Point(300, 500));
+        KeyboardListener kbListener = new KeyboardListener(roadFrogGame);
+        addKeyListener(kbListener);
+        setFocusable(true);
     }
 
     /**

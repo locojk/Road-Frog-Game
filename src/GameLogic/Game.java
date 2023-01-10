@@ -21,7 +21,7 @@ public class Game{
     public static final int winCoordinate = 20;
 
     /**
-     * Creates a new Frogger game.
+     * Creates a new Road Frog game.
      * @param name player's name
      * @param startPoint player's start point.
      */

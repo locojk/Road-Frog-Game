@@ -25,26 +25,18 @@ public class Frog {
         currentPosition = startPoint;
     }
 
-    /**
-     * Creates a new frog object given a name and at position (0,0)
-     * @param name the name of the Frog.
-     */
     public Frog(String name) {
         this(name, new Point(0,0));
     }
 
-    /**
-     * Return current position of Frog.
-     * @return A Point object implies the current position of the Frog.
-     */
     public Point getCurrentPosition() {
         return currentPosition;
     }
 
-    /**
-     * Return name of Frog.
-     * @return A string implies the name of the Frog.
-     */
+    public void setCurrentPosition(Point currentPosition) {
+        this.currentPosition = currentPosition;
+    }
+
     public String getName() {
         return name;
     }
