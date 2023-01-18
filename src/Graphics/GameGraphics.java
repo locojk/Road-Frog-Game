@@ -73,7 +73,7 @@ public class GameGraphics extends JPanel {
      * It will add four cars, two in each direction and register the keyboard listener
      */
     private void resetGame() {
-        roadFrogGame = new Game("Hui", new Point(300, 500));
+        roadFrogGame = new Game("Hui", new Point(300, 550));
         KeyboardListener kbListener = new KeyboardListener(roadFrogGame);
         addKeyListener(kbListener);
         setFocusable(true);
@@ -91,15 +91,15 @@ public class GameGraphics extends JPanel {
 
         //Draw the "road median"
         g2d.setColor(Color.lightGray);
-        g2d.fillRect(0,225,600,50);
+        g2d.fillRect(0,275,600,50);
 
         //Draw the "safe area"
         g2d.setColor(new Color(117,214,62));
         g2d.fillRect(0,0,600,50);
 
-        //Draw the frog as a red circle
+        //Draw the frog as a rectangle
         g2d.setColor(Color.getColor("#006611"));
-        g2d.fillOval(roadFrogGame.getPlayer().getCurrentPosition().x,
+        g2d.fillRect(roadFrogGame.getPlayer().getCurrentPosition().x,
                 roadFrogGame.getPlayer().getCurrentPosition().y,
                 30, 30);
 

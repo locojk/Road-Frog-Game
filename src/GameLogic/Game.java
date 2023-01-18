@@ -32,17 +32,17 @@ public class Game{
         cars = new ArrayList<>();
 
         //Add first car to array list cars.
-        Point p1 = new Point(100,400);
+        Point p1 = new Point(100,450);
         Car car1 = new Car(p1,Color.black,10,120,75,false);
         cars.add(car1);
 
         //Add second car to array list cars.
-        Point p2 = new Point(0,300);
+        Point p2 = new Point(0,350);
         Car car2 = new Car(p2,Color.blue,30,200,75,false);
         cars.add(car2);
 
         //Add third car to array list cars.
-        Point p3 = new Point(100,150);
+        Point p3 = new Point(100,170);
         Car car3 = new Car(p3,Color.black,10,120,75,true);
         cars.add(car3);
 
@@ -124,7 +124,7 @@ public class Game{
      */
     public boolean isPlayerHit() {
         for (Car element : cars) {
-            if (element.getCollisionBounds().contains(player.getCollisionBounds())) {
+            if (element.getCollisionBounds().intersects(player.getCollisionBounds())) {
                 return true;
             }
         }

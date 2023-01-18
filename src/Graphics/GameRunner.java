@@ -13,7 +13,7 @@ public class GameRunner extends JPanel {
         JFrame gameFrame = new JFrame("The Road Frog Game");
         GameGraphics runner = new GameGraphics();
         gameFrame.add(runner);
-        gameFrame.setSize(600,600);
+        gameFrame.setSize(600,650);
         gameFrame.setVisible(true);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         runner.startGameLoop(gameFrame);
