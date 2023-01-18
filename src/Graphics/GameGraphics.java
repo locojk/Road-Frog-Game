@@ -77,7 +77,7 @@ public class GameGraphics extends JPanel {
      * It will add four cars, two in each direction and register the keyboard listener
      */
     private void resetGame() {
-        roadFrogGame = new Game("Hui", new Point(300, 550));
+        roadFrogGame = new Game("Hui", new Point(290, 550));
         KeyboardListener kbListener = new KeyboardListener(roadFrogGame);
         addKeyListener(kbListener);
         setFocusable(true);
