@@ -38,7 +38,7 @@ public class Game{
 
         //Add second car to array list cars.
         Point p2 = new Point(0,350);
-        Car car2 = new Car(p2,Color.blue,30,200,75,false);
+        Car car2 = new Car(p2,Color.black,30,200,75,false);
         cars.add(car2);
 
         //Add third car to array list cars.

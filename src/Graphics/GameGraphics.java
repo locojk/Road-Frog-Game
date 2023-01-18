@@ -3,8 +3,12 @@ package Graphics;
 import GameLogic.Car;
 import GameLogic.Game;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Graphics representation of the Road Frog Game.
@@ -90,7 +94,7 @@ public class GameGraphics extends JPanel {
         Graphics2D g2d = (Graphics2D) graphics;
 
         //Draw the "road median"
-        g2d.setColor(Color.lightGray);
+        g2d.setColor(new Color(	135, 206, 235));
         g2d.fillRect(0,275,600,50);
 
         //Draw the "safe area"
@@ -98,10 +102,19 @@ public class GameGraphics extends JPanel {
         g2d.fillRect(0,0,600,50);
 
         //Draw the frog as a rectangle
-        g2d.setColor(Color.getColor("#006611"));
-        g2d.fillRect(roadFrogGame.getPlayer().getCurrentPosition().x,
+        g2d.setColor(new Color(0, 0, 0, 0));
+        g2d.fillOval(roadFrogGame.getPlayer().getCurrentPosition().x,
                 roadFrogGame.getPlayer().getCurrentPosition().y,
-                30, 30);
+                40, 40);
+
+        try {
+            BufferedImage image = ImageIO.read(new File("images/frog.png"));
+            Image scaledImage = image.getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+            g2d.drawImage(scaledImage, roadFrogGame.getPlayer().getCurrentPosition().x,
+                    roadFrogGame.getPlayer().getCurrentPosition().y, null);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         //Draw each car using rectangles
         for (Car car: roadFrogGame.getCars()) {
