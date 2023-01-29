@@ -3,7 +3,7 @@ This is a simple game where the player controls a frog and tries to cross a road
 
 The game preview is as follows. Please note that the game is still in the early development version :)
 
-<img width="601" alt="Screenshot 2023-01-18 at 12 59 55 AM" src="https://user-images.githubusercontent.com/121655608/213088218-c8011223-bbee-45db-aa50-b17b45eb4815.png">
+<img width="600" alt="Screenshot 2023-01-29 at 6 23 00 PM" src="https://user-images.githubusercontent.com/121655608/215359002-22bfe5e5-1ecc-4568-bae1-0340326cdfc3.png">
 
 # How to Run the Game
 To run the game, you will need to have Java installed on your computer. Once Java is installed, you can run the game by running the "GameRunner" class in "src/GameLogic" folder. The game will open in a new window with the title "The Road Frog Game".
