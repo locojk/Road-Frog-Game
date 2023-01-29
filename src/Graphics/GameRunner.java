@@ -14,6 +14,7 @@ public class GameRunner extends JPanel {
         GameGraphics runner = new GameGraphics();
         gameFrame.add(runner);
         gameFrame.setSize(600,650);
+        gameFrame.setResizable(false);
         gameFrame.setVisible(true);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         runner.startGameLoop(gameFrame);
