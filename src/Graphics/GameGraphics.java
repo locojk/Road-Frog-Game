@@ -117,11 +117,22 @@ public class GameGraphics extends JPanel {
         }
 
         //Draw each car using rectangles
+        int index = 1;
         for (Car car: roadFrogGame.getCars()) {
             Point carPosition = car.getCurrentPosition();
             Color carColor = car.getBodyColour();
             g2d.setColor(carColor);
             g2d.fillRect(carPosition.x, carPosition.y, car.getXSize(), car.getYSize());
+
+            try {
+                BufferedImage image = ImageIO.read(new File("images/car" + index + ".png"));
+                Image scaledImage = image.getScaledInstance(car.getXSize(), car.getYSize(), Image.SCALE_SMOOTH);
+                g2d.drawImage(scaledImage, carPosition.x, carPosition.y, null);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            index++;
         }
 
     }

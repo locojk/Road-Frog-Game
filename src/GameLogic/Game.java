@@ -33,22 +33,22 @@ public class Game{
 
         //Add first car to array list cars.
         Point p1 = new Point(100,450);
-        Car car1 = new Car(p1,Color.black,10,120,75,false);
+        Car car1 = new Car(p1,new Color(0, 0, 0, 0),10,120,75,false);
         cars.add(car1);
 
         //Add second car to array list cars.
         Point p2 = new Point(0,350);
-        Car car2 = new Car(p2,Color.black,30,200,75,false);
+        Car car2 = new Car(p2,new Color(0, 0, 0, 0),30,200,75,false);
         cars.add(car2);
 
         //Add third car to array list cars.
         Point p3 = new Point(100,170);
-        Car car3 = new Car(p3,Color.black,10,120,75,true);
+        Car car3 = new Car(p3,new Color(0, 0, 0, 0),10,120,75,true);
         cars.add(car3);
 
         //Add last car to array list cars.
         Point p4 = new Point(0,80);
-        Car car4 = new Car(p4,Color.black,20,120,75,true);
+        Car car4 = new Car(p4,new Color(0, 0, 0, 0),20,120,75,true);
         cars.add(car4);
     }
 
